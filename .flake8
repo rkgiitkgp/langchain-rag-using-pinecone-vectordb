@@ -1,0 +1,29 @@
+[flake8]
+max-line-length = 88
+extend-ignore =
+    # E203: Whitespace before ':' (conflicts with Black)
+    E203,
+    # W503: Line break before binary operator (conflicts with Black)
+    W503,
+    # E402: Module level import not at top of file (for dotenv cases)
+    E402
+exclude =
+    .git,
+    __pycache__,
+    build,
+    dist,
+    *.egg-info,
+    venv/
+per-file-ignores =
+    # F401: Module imported but unused
+    # F403: 'from module import *' used
+    __init__.py:F401,F403
+    # Allow unused imports in specific files where they might be used later
+    ingestion.py:F401
+max-complexity = 10
+# Show the source code generating the error/warning in the output
+show_source = True
+# Count the number of occurrences of each error/warning
+statistics = True
+# Set maximum allowed doc string length
+docstring-max-length = 120
